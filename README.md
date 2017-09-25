@@ -15,4 +15,5 @@ A weather applicaton for Android
 先制作顶部工具栏，包含“城市选择”、“分隔符”、“天气名称”、“定位”和“刷新”等控件。
 
 顶部工具栏效果如下：
+
 ![](http://chuantu.biz/t6/65/1506343854x3673677007.png)
