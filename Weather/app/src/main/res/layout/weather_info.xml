@@ -68,7 +68,7 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/title"
         android:background="@drawable/biz_plugin_weather_shenzhen_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
         <!-- 今日天气信息 -->
         <RelativeLayout
             android:id="@+id/weather_today"
@@ -112,6 +112,17 @@
                 android:text="湿度:57%"
                 android:textColor="@android:color/white"
                 android:textSize="15.0sp" />
+            <!-- 当前温度 -->
+            <TextView
+                android:id="@+id/currentTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   当前温度:6℃"
+                android:textColor="@android:color/white"
+                android:textSize="15.0sp"
+                android:layout_below="@+id/time"
+                android:layout_toRightOf="@+id/humidity"
+                android:layout_toEndOf="@+id/humidity" />
             <!-- PM2.5整体信息块 -->
             <LinearLayout
                 android:id="@+id/pm2_5_content"
