@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private ImageView mUpdateBtn;
 
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
-            temperatureTv, climateTv, windTv, city_name_Tv;
+            temperatureTv, climateTv, windTv, city_name_Tv,currentTemperatureTv;
     private ImageView weatherImg, pmImg;
 
     private Handler mHandler = new Handler() {
@@ -85,6 +85,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         climateTv = (TextView) findViewById(R.id.climate);
         windTv = (TextView) findViewById(R.id.wind);
         weatherImg = (ImageView) findViewById(R.id.weather_img);
+        currentTemperatureTv = (TextView) findViewById(R.id.currentTemperature);
 
         city_name_Tv.setText("N/A");
         cityTv.setText("N/A");
@@ -96,6 +97,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         temperatureTv.setText("N/A");
         climateTv.setText("N/A");
         windTv.setText("N/A");
+        currentTemperatureTv.setText("N/A");
     }
 
     void updateTodayWeather(TodayWeather todayWeather){
@@ -103,6 +105,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         cityTv.setText(todayWeather.getCity());
         timeTv.setText(todayWeather.getUpdatetime()+ "发布");
         humidityTv.setText("湿度："+todayWeather.getShidu());
+        currentTemperatureTv.setText("温度："+todayWeather.getWendu());
         pmDataTv.setText(todayWeather.getPm25());
         pmQualityTv.setText(todayWeather.getQuality());
         weekTv.setText(todayWeather.getDate());
