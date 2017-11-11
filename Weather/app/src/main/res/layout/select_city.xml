@@ -29,7 +29,12 @@
             android:layout_gravity="center"
             android:layout_toRightOf="@+id/title_back"
             android:background="#093d6b"
-            android:gravity="center"/>
+            android:gravity="center" />
+        <ListView
+            android:id="@+id/selectcity_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
 
     </RelativeLayout>
 
