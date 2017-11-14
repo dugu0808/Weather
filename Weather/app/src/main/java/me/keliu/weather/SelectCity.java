@@ -25,6 +25,7 @@ public  class SelectCity extends Activity implements View.OnClickListener{
     private MyApplication mApplication;
     private ArrayList<String> mArrayList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public  class SelectCity extends Activity implements View.OnClickListener{
         }
         cityListLv = (ListView)findViewById(R.id.selectcity_lv);
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(SelectCity.this,android.R.layout.simple_list_item_1,mArrayList);
+        cityListLv.setAdapter(adapter);
     }
 
     @Override
