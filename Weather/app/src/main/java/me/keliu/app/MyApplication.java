@@ -33,6 +33,7 @@ public class MyApplication  extends Application{
         initCityList();
     }
 
+    //初始化城市信息列表
     private void initCityList(){
         mCityList = new ArrayList<City>();
         new Thread(new Runnable() {

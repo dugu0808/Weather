@@ -38,6 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private ImageView mCitySelect;
 
+    //定义相关的控件对象
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
             temperatureTv, climateTv, windTv, city_name_Tv,currentTemperatureTv;
     private ImageView weatherImg, pmImg;
@@ -58,7 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weather_info);
+        setContentView(R.layout.weather_info);   //调用setContentView方法加载weather_info布局
 
         mUpdateBtn = (ImageView) findViewById(R.id.title_update_btn);
         mUpdateBtn.setOnClickListener(this);
@@ -66,6 +67,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         mCitySelect = (ImageView)findViewById(R.id.title_city_manager);
         mCitySelect.setOnClickListener(this);
 
+        //检测网络连接状态
         if (NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE){
             Log.d("myWeather","网络OK");
             Toast.makeText(MainActivity.this,"网络OK！ ",Toast.LENGTH_LONG).show();
@@ -76,10 +78,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
 
 
-
+        //初始化控件内容
         initView();
     }
 
+    //初始化控件内容
     void initView(){
         city_name_Tv = (TextView) findViewById(R.id.title_city_name);
         cityTv = (TextView) findViewById(R.id.city);
@@ -108,6 +111,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         currentTemperatureTv.setText("N/A");
     }
 
+    /* 通过消息机制， 将解析的天气对象， 通过消息发送给主线程，主线程接收到消息数据后， 调用updateTodayWeather函数，更新UI界面上的数据。*/
     void updateTodayWeather(TodayWeather todayWeather){
         city_name_Tv.setText(todayWeather.getCity()+"天气");
         cityTv.setText(todayWeather.getCity());
@@ -121,6 +125,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         climateTv.setText(todayWeather.getType());
         windTv.setText("风力:"+todayWeather.getFengli());
 
+        //根据不同的PM2.5的值,更新ImageView
         if(todayWeather.getPm25()!=null) {
             int pm25 = Integer.parseInt(todayWeather.getPm25());
             if (pm25 <= 50) {
@@ -207,6 +212,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     }
 
+    //为更新按钮添加单击事件
     @Override
     public void onClick(View view){
         if (view.getId() == R.id.title_city_manager){
@@ -215,6 +221,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
             startActivityForResult(i,1);
         }
 
+        //通过SharedPreferences读取城市id
         if (view.getId() == R.id.title_update_btn){
             SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
             String cityCode = sharedPreferences.getString("main_city_code","101160101");
@@ -232,6 +239,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
     }
 
+    //onActivityResult函数用于接收返回的数据
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             String newCityCode= data.getStringExtra("cityCode");
@@ -290,6 +298,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }).start();
     }
 
+    //解析函数，解析出城市天气数据信息
     private TodayWeather parseXML(String xmldata){
         TodayWeather todayWeather = null;
         int fengxiangCount=0;

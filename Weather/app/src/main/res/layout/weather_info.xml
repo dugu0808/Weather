@@ -10,7 +10,8 @@
         android:layout_height="45.0dip"
         android:background="#105c8b"
         android:gravity="center_vertical">
-        
+
+        <!-- 城市选择图标 -->
         <ImageView
             android:id="@+id/title_city_manager"
             android:layout_width="45.0dip"
@@ -35,7 +36,8 @@
             android:text="北京天气"
             android:textColor="#ffffffff"
             android:textSize="22.0sp"/>
-    
+
+        <!-- 更新图标 -->
         <ImageView
             android:id="@+id/title_update_btn"
             android:layout_width="45.0dip"
@@ -47,6 +49,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
+        <!-- 分享图标 -->
         <ImageView
             android:id="@+id/title_share"
             android:layout_width="45.0dip"
@@ -54,6 +57,7 @@
             android:layout_toLeftOf="@+id/title_update_btn"
             android:src="@drawable/title_share"/>
 
+        <!-- 定位图标 -->
         <ImageView
             android:id="@+id/title_location"
             android:layout_width="45.0dip"
