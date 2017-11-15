@@ -54,8 +54,8 @@ public  class SelectCity extends Activity implements View.OnClickListener{
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int updateCityCode = Integer.parseInt(mCityList.get(position).getNumber());
-                Log.d("update city code",Integer.toString(updateCityCode));
+                updateCityCode = mCityList.get(position).getNumber();
+                Log.d("update city code",(updateCityCode));
             }
         };
         //为组件绑定监听
@@ -69,11 +69,12 @@ public  class SelectCity extends Activity implements View.OnClickListener{
     public void onClick(View v){
         switch (v.getId()){
             case R.id.title_back:
-                Intent i = new Intent(this, MainActivity.class);
-                i.putExtra("cityCode", updateCityCode);
-                startActivity(i);
-                //setResult(RESULT_OK, i);
-                //finish();
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("cityCode", updateCityCode);
+                Log.d("transmit data",updateCityCode);
+                //startActivity(intent);
+                setResult(RESULT_OK, intent);
+                finish();
                 break;
             default:
                 break;

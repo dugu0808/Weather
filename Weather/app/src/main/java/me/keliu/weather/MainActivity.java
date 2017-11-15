@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private ImageView mUpdateBtn;
     private ImageView mCitySelect;
     private String updateCityCode;
-    TodayWeather todayWeather  = null;
+    //TodayWeather todayWeather  = null;
 
     //定义相关的控件对象
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
@@ -82,11 +82,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         //初始化控件内容
         initView();
 
-        updateCityCode = getIntent().getStringExtra("cityCode");
-        if(updateCityCode != "-1")
-        {
-            queryWeatherCode(updateCityCode);
-        }
+
     }
 
     //初始化控件内容
