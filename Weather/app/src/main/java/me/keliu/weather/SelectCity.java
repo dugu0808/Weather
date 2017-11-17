@@ -43,8 +43,11 @@ public  class SelectCity extends Activity implements View.OnClickListener{
         mCityList = mApplication.getCityList();
         mArrayList = new ArrayList<String>();
         for (int i = 0; i<mCityList.size(); i++) {
+            String No_ = Integer.toString(i+1);
+            String number = mCityList.get(i).getNumber();
+            String provinceName = mCityList.get(i).getProvince();
             String cityName = mCityList.get(i).getCity();
-            mArrayList.add(cityName);
+            mArrayList.add("No."+No_+":"+number+"-"+provinceName+"-"+cityName);
         }
         cityListLv = (ListView)findViewById(R.id.selectcity_lv);
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(SelectCity.this,android.R.layout.simple_list_item_1,mArrayList);
