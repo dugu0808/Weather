@@ -4,6 +4,37 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/search_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectcity_title"
+        android:layout_margin="4dip">
+
+        <EditText
+            android:id="@+id/search_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:hint="搜索全国城市"
+            android:paddingLeft="43dp"
+            android:textColor="#ff000000"
+            android:textColorHint="#ffcccccc"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/contact_search_box_edittext_keyword_background"/>
+
+        <ImageView
+            android:id="@+id/magnifying_glass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dip"
+            android:src="@drawable/magnifying_glass"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="45dip"
         android:background="#105c8b"

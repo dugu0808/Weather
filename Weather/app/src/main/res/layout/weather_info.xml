@@ -49,6 +49,13 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
+        <!-- 加载数据按钮 -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+
         <!-- 分享图标 -->
         <ImageView
             android:id="@+id/title_share"

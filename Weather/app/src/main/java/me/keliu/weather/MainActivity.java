@@ -9,6 +9,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +38,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private ImageView mUpdateBtn;
     private ImageView mCitySelect;
     private String updateCityCode;
-    //TodayWeather todayWeather  = null;
+
+    //正在加载数据按钮
+    private ProgressBar progressBar;
 
     //定义相关的控件对象
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
@@ -78,6 +81,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
             Toast.makeText(MainActivity.this,"网络挂了！",Toast.LENGTH_LONG).show();
         }
 
+        //正在加载数据按钮
+        progressBar = (ProgressBar)findViewById(R.id.progress_bar);
 
         //初始化控件内容
         initView();
@@ -218,6 +223,21 @@ public class MainActivity extends Activity implements View.OnClickListener{
     //为更新按钮添加单击事件
     @Override
     public void onClick(View view){
+
+        //正在加载数据按钮
+        switch(view.getId()){
+            case R.id.title_update_btn:
+                if(progressBar.getVisibility() == View.GONE){
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+                else{
+                    progressBar.setVisibility(View.GONE);
+                }
+                break;
+            default:
+                break;
+        }
+
         if (view.getId() == R.id.title_city_manager){
             Intent i = new Intent(this, SelectCity.class);
             //startActivity(i);
