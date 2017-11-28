@@ -7,7 +7,7 @@
         android:id="@+id/search_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/selectcity_title"
+        android:layout_below="@id/selectcity_title"
         android:layout_margin="4dip">
 
         <EditText
@@ -30,6 +30,17 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dip"
             android:src="@drawable/magnifying_glass"/>
+
+        <ImageView
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:src="@drawable/search_btn" />
 
     </RelativeLayout>
 
@@ -67,7 +78,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/selectcity_title">
+        android:layout_below="@id/search_city">
         <ListView
             android:id="@+id/selectcity_lv"
             android:layout_width="match_parent"
