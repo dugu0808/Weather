@@ -301,7 +301,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         if (view.getId() == R.id.title_update_btn){
             //SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
             SharedPreferences sharedPreferences = getSharedPreferences("CityCodePreference",Activity.MODE_PRIVATE);
-            String cityCode = sharedPreferences.getString("citycode","");
+            String cityCode = sharedPreferences.getString("citycode","101010100");
             Log.d("myWeather",cityCode);
             if(!cityCode.equals(""))
             {
